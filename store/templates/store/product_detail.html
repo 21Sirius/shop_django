@@ -1,109 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'store/index.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
+  {{product.title}}
+{% endblock title %}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css" >
-    <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
-    <title>Home</title>
-
-
-
-</head>
-
-<body class="d-flex">
-    <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Online Shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Iphone</a></li>
-            <li><a class="dropdown-item" href="#">MacBook and IMac</a></li>
-            <li><a class="dropdown-item" href="#">Other</a></li>
-          </ul>
-        </li>
-
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-    </header>
-    <div class="container mt-5  pt-3">
-    <main>
-  <div class="card">
+{% block content %}
+<div class="card">
           <img src="https://static.re-store.ru/upload/resize_cache/iblock/193/100500_800_140cd750bba9870f18aada2478b24840a/52ikb78ktt0bqz0dhhm0shfo9kev4kes.jpeg" class="card-img-top" alt="...">
 
     <div class="card-body">
-      <h5 class="card-title">Apple iPhone 15 Pro Max dual-SIM 1 ТБ, «титановый синий»</h5>
-      <p class="card-text">Юридическая информация:
-USB 3: кабель USB 3 со скоростью 10 Гбит/с необходим для ускорения передачи данных до 20 раз на моделях iPhone 15 Pro.
-
-Питание и аккумулятор: Все претензии по аккумулятору зависят от конфигурации сети и многих других факторов; фактические результаты будут отличаться. Аккумулятор имеет ограниченное количество циклов перезарядки и в конечном итоге может нуждаться в замене. Срок службы батареи и циклы зарядки зависят от использования и настроек. Дополнительную информацию см. на сайтах apple.com/uk/batteries и apple.com/uk/iphone/battery.html.
-
-Экстренный вызов SOS через спутник: услуга предоставляется бесплатно на два года при активации любой модели iPhone 15. Время подключения и ответа зависит от местоположения, условий на объекте и других факторов. Дополнительную информацию см. на странице support.apple.com/kb/HT213885.
-
-Обнаружение столкновений: iPhone 15 и iPhone 15 Pro могут обнаружить серьезную автомобильную аварию и вызвать помощь. Требуется мобильное подключение для передачи данных или вызовы по Wi-Fi.
-          Характеристики
-Основные характеристики
-
-Серия
-iPhone 15 Pro Max
-Память
-1 ТБ
-Цвет
-«титановый синий»
-Процессор
-
-Процессор
-A17 Pro
-Дисплей
-
-Диагональ
-6,7"
-Разрешение
-2796x1290
-Яркость
-2000 кд/м²
-Контрастность
-2000000:1
-Плотность пикселей на дюйм
-460 пикс/дюйм
-Тип дисплея
-OLED
-Технологии дисплея
-ProMotion с адаптивной частотой обновления до 120 Гц
-True Tone
-         </p>
-        <ul class="category_list">
-            <li><a href="">Iphone</a> </li>
-            <li><a href="">Iphone</a> </li>
-            <li><a href="">Iphone</a> </li>
-
+      <h5 class="card-title">{{  product.title  }}</h5>
+              <p class="card-text">{{product.info}}</p>
+              <p class="card-text">{{ product.price }}</p>
+              <ul class="category_list">
+                <li><a href="">Iphone</a></li>
+              </ul>
         </ul>
 
         <!-- Button trigger modal -->
@@ -114,9 +25,6 @@ True Tone
   </div>
 
 
-
-
-    </main>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -148,14 +56,4 @@ True Tone
     </div>
   </div>
 </div>
-    </div>
-    <footer class="footer bg-dark text-info d-flex justify-content-center
-                   aling-items-center">
-       <span>Phone Number +7-999-888-33-44</span>
-    </footer>
-
-
-</body>
-
-
-</html>
+{% endblock content %}

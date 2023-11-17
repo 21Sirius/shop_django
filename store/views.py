@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Product
+from .models import *
 
 
 def build_template(lst: list, cols: int) -> list[list]:
@@ -8,10 +8,24 @@ def build_template(lst: list, cols: int) -> list[list]:
 
 
 def product_list(request):
+    categories = Category.objects.all()
     products = Product.objects.all()
     return render(
         request,
         "store/product_list.html",
-        context={"product_list": build_template(products, 3)}
+        context={"product_list": build_template(products, 3),
+                 "categories": categories
+                 }
+    )
 
+
+def product_detail(request, pk):
+    categories = Category.objects.all()
+    product = Product.objects.get(pk=pk)
+    return render(
+        request,
+        "store/product_detail.html",
+        context={"product": product,
+                 "catrgories": categories
+                 }
     )
