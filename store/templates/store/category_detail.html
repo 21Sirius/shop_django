@@ -1,12 +1,13 @@
 {% extends 'store/index.html' %}
 
 {% block title %}
-  Product List
+{{ category.title}}
 {% endblock title %}
 
 
 
 {% block content %}
+<h1>Товар с категориии "{{ category.title }}":</h1>
 {% for products in product_list %}
 <div class="card-group">
           {%  for product in products %}

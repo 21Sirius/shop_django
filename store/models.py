@@ -5,6 +5,7 @@ class Product(models.Model):
     title = models.CharField(max_length=150, db_index=True)
     info = models.TextField(blank=True)
     price = models.IntegerField()
+    categories = models.ManyToManyField("Category", blank= True, related_name='products')
 
     def __str__(self) -> str:
         return self.title

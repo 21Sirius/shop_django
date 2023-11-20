@@ -13,7 +13,9 @@
               <p class="card-text">{{product.info}}</p>
               <p class="card-text">{{ product.price }}</p>
               <ul class="category_list">
-                <li><a href="">Iphone</a></li>
+                {% for category in product.categories.all %}
+                <li><a href="">{{ category.title }}</a></li>
+                {% endfor %}
               </ul>
         </ul>
 
@@ -29,7 +31,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Product title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{  product.title  }}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -49,6 +51,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
+  <input type="hidden", name="product_id", value="{{  product.id  }},", readonly>
   <button type="submit" class="btn btn-secondary">Order</button>
 </form>
       </div>
