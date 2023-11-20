@@ -11,10 +11,11 @@
     <div class="card-body">
       <h5 class="card-title">{{  product.title  }}</h5>
               <p class="card-text">{{product.info}}</p>
-              <p class="card-text">{{ product.price }}</p>
+              <p class="card-text"> Price: {{ product.price }}</p>
               <ul class="category_list">
                 {% for category in product.categories.all %}
-                <li><a href="">{{ category.title }}</a></li>
+                <li><a href="{{category.get_absolute_url }}">{{category.title}}</a></li>
+                  <li>">{{ category.title }}</a></li>
                 {% endfor %}
               </ul>
         </ul>

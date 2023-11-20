@@ -7,37 +7,7 @@
 
 
 {% block content %}
-<h1>Товар с категориии "{{ category.title }}":</h1>
-{% for products in product_list %}
-<div class="card-group">
-          {%  for product in products %}
-          <div class="card">
-            <a href="{% url 'product_detail_url' pk=product.pk %}">
-              <img
-                src="https://static.re-store.ru/upload/resize_cache/iblock/193/100500_800_140cd750bba9870f18aada2478b24840a/52ikb78ktt0bqz0dhhm0shfo9kev4kes.jpeg"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">
-                {{  product.title  }}
-              </h5>
-              <p class="card-text">
-                {{product.info|truncatewords:10}}
-              </p>
-              <p class="card-text">
-                {{ product.price }}
-              </p>
-              <ul class="category_list">
-                 {% for category in product.categories.all %}
-                <li><a href="">{{ category.title }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        {% endfor %}
-</div>
-{% endfor %}
+<h1>Товар с категории "{{ category.title }}":</h1>
+{% include 'store/includes/card_group.html' %}
 {% endblock content %}
 

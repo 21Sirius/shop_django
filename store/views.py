@@ -37,7 +37,7 @@ def category_detail(request, pk):
     products = category.products.all()
     return render(
         request,
-        "store/category__detail.html",
+        "store/category_detail.html",
         context={"product_list": build_template(products, 3),
                  "category": category,
                  "catrgories": categories
