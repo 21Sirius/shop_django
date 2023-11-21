@@ -1,21 +1,22 @@
 .logo{
     width: 50px;
     border-radius: 100%;
-
 }
 
 .category_list {
     list-style: none;
-    display: flax;
+    display: flex;
     padding: 0;
-    gap: 5px;
+    gap: 7px;
 }
 
-.footer {
-    min-height: 80px;
-}
+
 
 .category_list a {
     text-decoration: none;
     color: purple; 
+}
+
+.footer {
+    min-height: 80px;
 }
