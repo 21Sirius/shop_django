@@ -6,8 +6,7 @@
 
 {% block content %}
 <div class="card">
-          <img src="https://static.re-store.ru/upload/resize_cache/iblock/193/100500_800_140cd750bba9870f18aada2478b24840a/52ikb78ktt0bqz0dhhm0shfo9kev4kes.jpeg" class="card-img-top" alt="...">
-
+    {% include 'store/includes/image.html' %}
     <div class="card-body">
       <h5 class="card-title">{{  product.title  }}</h5>
               <p class="card-text">{{product.info}}</p>

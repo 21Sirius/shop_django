@@ -3,12 +3,9 @@
           {%  for product in products%}
           <div class="card">
             <a href="{{product.get_absolute_url}}">
-              <img
-                src="https://static.re-store.ru/upload/resize_cache/iblock/193/100500_800_140cd750bba9870f18aada2478b24840a/52ikb78ktt0bqz0dhhm0shfo9kev4kes.jpeg"
-                class="card-img-top"
-                alt="..."
-              />
+                {% include 'store/includes/image.html' %}
             </a>
+
             <div class="card-body">
               <h5 class="card-title">
                 {{  product.title  }}
@@ -19,7 +16,7 @@
               <p class="card-text">
                 {{ product.price }}
               </p>
-              <ul class="category_list">
+              <ul class="category-list" >
                  {% for category in product.categories.all %}
                 <li><a href="{{category.get_absolute_url }}">{{category.title}}</a></li>
                 {% endfor %}
