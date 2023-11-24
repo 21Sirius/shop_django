@@ -11,11 +11,10 @@ def product_list(request):
     categories = Category.objects.all()
     search_query = request.GET.get('search', None)
     if search_query:
-        products = Product.objects.filter(
-           Q(title__icontains=search_query)
-           |
-           Q(info_icontains=search_query)
-        )
+        products = Product.objects.filter(title__icontains=search_query)
+    else:
+        products = Product.objects.all()
+
     return render(
         request,
         "store/product_list.html",
@@ -48,4 +47,21 @@ def category_detail(request, pk):
                  "category": category,
                  "catrgories": categories
                  }
+    )
+
+
+def save_order(request):
+    categories = Category.objects.all()
+    order = Order()
+    order.name = request.POST['user_name']
+    order.email = request.POST['user_email']
+    order.product = Product.objects.get(pk=request.POST['product_id'])
+    order.save()
+    return render(
+        request,
+        'store/order.html',
+        context={
+            'categories': categories,
+            'order': order
+        }
     )

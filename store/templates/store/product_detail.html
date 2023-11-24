@@ -35,8 +35,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post" action="">
-
+        <form method="POST" action="/save_order">
+            {% csrf_token %}
             <div class="mb-3">
     <label for="user_name" class="form-label">You Name</label>
     <input type="text" class="form-control" name="user_name" id="user_name" required>
@@ -51,8 +51,8 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <input type="hidden", name="product_id", value="{{  product.id  }},", readonly>
-  <button type="submit" class="btn btn-secondary">Order</button>
+<input type="hidden" name="product_id" value="{{ product.id }}" readonly>
+            <button type="submit" class="btn btn-secondary">Order</button>
 </form>
       </div>
 
